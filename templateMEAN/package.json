@@ -1,0 +1,11 @@
+{
+	"name":"mean",
+	"version":"0.0.1",
+	"description":"template app",
+	"main":"server.js",
+	"author":"@milo",
+	"dependencies":{
+		"express":"~3.4.4",
+		"mongoose":"~3.6.2"
+	}
+}
