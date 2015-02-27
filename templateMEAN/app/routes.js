@@ -1,5 +1,5 @@
-var Persona = requiere('./model/persona');
-var Controller = requiere('./controller');
+var Persona = require('./model/persona');
+var Controller = require('./controller');
 
 module.exports = function(app) {
 
@@ -13,7 +13,7 @@ module.exports = function(app) {
 	app.put('/api/persona/:persona_id', Controller.updatePersona);
 
 	//Borrar una persona
-	app.delete('/api/persona/:persona_id', Controller.removePersona);
+	
 
 	//aplicacion
 	app.get('*', 

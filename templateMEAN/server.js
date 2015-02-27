@@ -3,14 +3,15 @@ var app = express();
 var mongoose = require('mongoose');
 var port = process.env.PORT || 8080;
 
-mongoose.connect('mongodb://localhost:27017/meandb');
+mongoose.connect('mongodb://localhost:8080/meandb');
 
 app.configure(
 	function(){
-		app.use(express.static(_dirname+'/angular'));
+		app.use(express.static(__dirname+'/angular'));
 		app.use(express.logger('dev'));
-		app.use(express.bodyParser());
-		app.use(express.methodOverrride());
+		app.use(express.urlencoded())
+		app.use(express.json())
+		app.use(express.methodOverride());
 	}
 );
 
