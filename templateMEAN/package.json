@@ -1,11 +1,17 @@
 {
-	"name":"mean",
-	"version":"0.0.1",
-	"description":"template app",
-	"main":"server.js",
-	"author":"@milo",
-	"dependencies":{
-		"express":"~3.4.4",
-		"mongoose":"~3.6.2"
-	}
+  "name": "prode",
+  "version": "1.0.0",
+  "description": "juego intereactivo relacionado a la Liga",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "@milo, @diego, @juanpi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.0",
+    "mongoose": "^3.8.24"
+  }
 }
