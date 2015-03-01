@@ -1,29 +1,24 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var methodOverride = require('method-override');
-var app = express();
+var express         = require("express"),
+    app             = express(),
+    bodyParser      = require("body-parser"),
+    methodOverride  = require("method-override"),
+    mongoose        = require('mongoose');
+var router = express.Router();
 var port = process.env.PORT || 3000;
 
-//mongoose.connect('mongodb://localhost:3600/meandb');
+// Conexion a Mongoose
+mongoose.connect('mongodb://localhost/meanDB', function(err, res) {
+  if(err) throw err;
+  console.log('Connected to Database');
+ });
 
-
-//app.configure(
-//	function(){
-		app.use(express.static(__dirname + '/angular'));
-		//app.use(express.logger('dev'));
-		//app.use('/angular', express.static(path.join(__dirname, '/angular/')));
-		app.use(bodyParser.json());
-		//app.use(express.json())
-		//app.use(express.methodOverride());
-//	}
-//);
-
-//require('./app/routes.js')(app);
-
-//var route = express.Router();
-
-
-
-app.listen(port);
-console.log("app por el puerto "+ port);
+// Middlewares
+app.use(express.static(__dirname + '/angular'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(methodOverride());
+app.use(router);
+app.use('/api', router);
+app.listen(port, function() {
+   console.log("Node server running on http://localhost:3000");
+});

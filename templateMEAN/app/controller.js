@@ -1,4 +1,5 @@
-var Persona = require('./model/persona');
+var mongoose = require('mongoose');
+var Persona = mongoose.model("Persona");
 
 //obtenego todos los objetos persona de la base de datos
 exports.getPersona = function(req, res) {
@@ -63,3 +64,14 @@ exports.updatePersona = function(req, res) {
 		}
 	);
 }
+
+exports.deletePersona = function(req, res) {
+	Persona.find(function {
+		persona.remove(function(err) {
+			if (err) {
+				res.send(err);
+			}
+			res.json(persona);
+		})
+	});
+};
