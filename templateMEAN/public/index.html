@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html ng-app="prodeApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PRODE GANADOR</title>
+    <!-- Cargamos bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    
+   
+
+</head>
+
+<body>
+
+
+
+    <ng-view></ng-view>
+
+	
+  
+	<!-- Cargamos jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!-- Cargamos angular -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+    <!-- Cargamos modulos extras de Angular -->
+    <script src="lib/angular/angular-route.min.js"></script>
+    <script src="lib/angular/angular-sanitize.min.js"></script>
+
+	<!-- Cargamos Routes, Controllers, Services & Directives -->
+	<script src="controllers/personaController.js"></script>
+    <script src="services/personaService.js"></script>    
+    <script src="app.js"></script>
+
+</body>
+
+</html>
