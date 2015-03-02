@@ -19,7 +19,7 @@ mongodb.connect(db_string, function(err, res) {
  });
 
 // Middlewares
-app.use(express.static(__dirname + '/angular'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride());
