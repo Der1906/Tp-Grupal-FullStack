@@ -13,19 +13,19 @@
 */
 
 var prodeApp = angular.module('prodeApp', ['ngRoute', 'ngSanitize', 'personaController']);
-
+console.log('front-end route');
 /*
 * Se hace uso del modulo ngRoute el cual nos permite crear rutas profundas en nuestra aplicación 
 * e intercambiar vistas dependiendo de la ruta
 */
 prodeApp.config(['$routeProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
-    when('/crud', {
+    when('/public', {
         templateUrl: 'views/persona.html',
         controller: 'PersonaController'
     }).
     otherwise({
-        redirectTo: '/crud'
+        redirectTo: '/public'
     });
 }]);
 

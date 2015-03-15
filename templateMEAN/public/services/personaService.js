@@ -12,6 +12,7 @@ angular.module('personaService', [])
 					url: '/api/persona',
 					withCredentials: true
 				}).then(function(response) {
+					console.log('persona',response);
 					var persons = response.data;
 					return persons;
 				});
