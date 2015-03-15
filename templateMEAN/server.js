@@ -33,6 +33,45 @@
  });
 
 
+ router.post('/api/persona/insert',
+ 	function(req, res) {
+
+ 		req.on('data',
+ 			function(data) {
+ 				var json = JSON.parse(data.toString());
+ 				
+ 				mongodb.connect('mongodb://127.0.0.1:27017/prode',
+ 					function(error, db) {
+ 						if (error) {
+ 							throw error;
+ 						}
+
+ 						console.log('Conexion a la base realizada.');
+
+ 						db.collection('personas').insert(json,
+ 							function(error, records) {
+
+ 								if (error) {
+ 									throw error;
+ 								}
+
+ 								res.send('OK');
+ 								//console.log("Record added as " + records[0]._id);
+ 								db.close();
+ 								console.log('Conexion a la base fue cerrada.');
+ 							}
+ 						);
+
+ 					}
+ 				);
+
+ 			}
+ 		);
+ 	}
+ );
+
+
+
  /*router.get('/api/persona', function (req, res) {
    console.log('route'); // /greet
    res.send('Konichiwa!');

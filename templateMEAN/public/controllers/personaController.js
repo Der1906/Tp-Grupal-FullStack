@@ -7,7 +7,7 @@ angular.module('personaController', ['personaService'])
 		console.log('PersonaController');
 
 		function getPersonSuccessResponse(response) {
-			console.log("OK");
+			//console.log("OK", response[0].nombre);
 			$scope.personas = response;
 		};
 
@@ -16,7 +16,7 @@ angular.module('personaController', ['personaService'])
 		};
 
 		function addPersonSuccessResponse(response) {
-			console.log("OK");
+			console.log("OK", response);
 		};
 
 		function addPersonErrorResponse(response) {
@@ -33,6 +33,13 @@ angular.module('personaController', ['personaService'])
 
 
 		initializacion();
+
+		$scope.registrarPersona = function () {
+			console.log('ssss',$scope.newPersona)
+			PersonaService.addPerson($scope.newPersona).then(addPersonSuccessResponse, addPersonErrorResponse);
+		}
+
+
 		//PersonaService.getPerson().then(getPersonSuccessResponse, getPersonErrorResponse);
 		//PersonaService.addPerson($scope.newPersona).then(addPersonSuccessResponse, addPersonErrorResponse);
 

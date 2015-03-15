@@ -34,8 +34,6 @@ app.route.get('/api/persona', function(req, res) {
 				console.log('Conexion a la base fue cerrada.');
 			});
 
-
-
 		}
 	);
 

@@ -12,17 +12,18 @@ angular.module('personaService', [])
 					url: '/api/persona',
 					withCredentials: true
 				}).then(function(response) {
-					console.log('persona',response);
+
 					var persons = response.data;
 					return persons;
 				});
 				return getPersonPromise;
 			};
 
-			this.addPerson = function() {
+			this.addPerson = function(persona) {
 				var addPersonPromise = $http({
 					method: 'POST',
-					url: '/api/persona',
+					url: '/api/persona/insert',
+					data : persona
 				}).then(function(response) {
 					var persons = response.data;
 					return persons;
