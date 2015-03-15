@@ -1,4 +1,4 @@
-/*
+
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model(
@@ -10,8 +10,8 @@ module.exports = mongoose.model(
 		clave: String
 	}
 );
-*/
-exports = module.exports = function(app, mongoose) {
+
+/*exports = module.exports = function(app, mongoose) {
 	var personaSchema = new mongoose.Schema({
 		nombre: String,
 		apellido: String,
@@ -19,4 +19,4 @@ exports = module.exports = function(app, mongoose) {
 		clave: String
 	});
 	mongoose.model("Persona",personaSchema);
-};
+};*/

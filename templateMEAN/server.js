@@ -1,24 +1,24 @@
-var express         = require("express"),
-    app             = express(),
-    bodyParser      = require("body-parser"),
-    methodOverride  = require("method-override"),
-    mongoose        = require('mongoose');
-var router = express.Router();
-var port = process.env.PORT || 3000;
+ var mongodb = require('mongodb').MongoClient;
+ var format = require('util').format;
+ var app = require('./app/routes');
+ var personaDAO = require('./app/dao/personaDao');
 
-// Conexion a Mongoose
-mongoose.connect('mongodb://localhost/meanDB', function(err, res) {
-  if(err) throw err;
-  console.log('Connected to Database');
+ var server = app.listen(3000, function(req, res) {
+ 	var host = server.address().address;
+ 	var port = server.address().port;
+ 	console.log('Arranco el servidor ' + host + ':' + port);
+
+ 	mongodb.connect('mongodb://127.0.0.1:27017/prode',
+ 		function(error, db) {
+ 			if (error) {
+ 				throw error;
+ 			}
+
+ 			console.log('Conexion a la base realizada.');
+
+ 			personaDAO.personasCollection(db);
+
+ 		}
+ 	);
+
  });
-
-// Middlewares
-app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(methodOverride());
-app.use(router);
-app.use('/api', router);
-app.listen(port, function() {
-   console.log("Node server running on http://localhost:3000");
-});
