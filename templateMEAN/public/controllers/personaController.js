@@ -3,8 +3,45 @@
 angular.module('personaController', ['personaService'])
 
 .controller({
-	'PersonaController': function($scope, $http) {
+	'PersonaController': function($scope, $http, PersonaService) {
 		console.log('PersonaController');
+
+		function getPersonSuccessResponse(response) {
+			//console.log("OK", response[0].nombre);
+			$scope.personas = response;
+		};
+
+		function getPersonErrorResponse(response) {
+			console.log("ERROR");
+		};
+
+		function addPersonSuccessResponse(response) {
+			console.log("OK", response);
+		};
+
+		function addPersonErrorResponse(response) {
+			console.log("ERROR");
+		};
+
+		function initializacion() {
+			$scope.newPersona = {};
+			$scope.personas = {};
+			$scope.selected = false;
+
+			PersonaService.getPerson().then(getPersonSuccessResponse, getPersonErrorResponse);
+		};		
+
+
+		initializacion();
+
+		$scope.registrarPersona = function () {
+			console.log('ssss',$scope.newPersona)
+			PersonaService.addPerson($scope.newPersona).then(addPersonSuccessResponse, addPersonErrorResponse);
+		}
+
+
+		//PersonaService.getPerson().then(getPersonSuccessResponse, getPersonErrorResponse);
+		//PersonaService.addPerson($scope.newPersona).then(addPersonSuccessResponse, addPersonErrorResponse);
 
 		/*$scope.newPersona = {};
 		$scope.personas = {};
